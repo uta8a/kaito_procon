@@ -2,7 +2,8 @@
 - 概要
 - [他のHexoなどのstatic site generatorとの比較](https://vuepress.vuejs.org/guide/#why-not)
 - まだアルファ版なので、安定性や周辺環境の豊富さなら他の方が楽だと思いますが、技術的興味とVueに慣れたい思いから採用しました。
-- (WIP)
+- 正直、まだ情報が少ないし今後ガンガン変更されていくことが予想されるので、あまりブログには向かないかもしれないと思っています。一方で、Vueのエコシステムや構造に雰囲気だけでもなれるとっかかりとしては最高だと思います(これでいろいろ設定いじったあと、素のVuejsを触ると設定周りの扱いが楽に感じました)
+- あとwarningとかdangerのような、markdown-it拡張がすごくよい。
 
 
 ### WSLでの準備
@@ -21,7 +22,7 @@ DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
 ln -s /mnt/c/Cmmd/Project/dev/kaito ~/kaito
 ```
 - 以下、とくに断りのない場合、WSLでの操作です。
-- 基本的には[公式](https://vuepress.vuejs.org/)を見るとよいです。
+- 基本的には[公式](https://vuepress.vuejs.org/)を見るとよいです。ここに拡張とかやりたいことの大半は載っていました。
 
 ### インストールと最小構成
 - [nodebrew](https://github.com/hokaccha/nodebrew)を利用してnode,npmが入っているとします。(node v10.8.0, npm 6.4.1で行っています)
@@ -216,7 +217,10 @@ yarn-error.log*
 *.sln
 ```
 - `cd kaito` -> `npm run build`
+- GitHubへpush
+- Settings>GitHubPages>Sourceから、None->master branch docs folderに変更してsave
+- https://tmasaaa.github.io/kaito_procon/ でホスティングされているのがわかる。
 
 # やりたいこと
 - markdownをblog/以下のディレクトリに追加したとき自動でルーティングしてほしい(いちいちルーティング書くの面倒)
-- 
+- Vueファイルでmarkdownを使いやすく拡張する。
