@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vuepressをはじめよう | kaitoの精進記録</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css">
+  <link rel="icon" type="image/png" href="/kaito_procon/__YOUR__FILE__.png">
+    
+    <link rel="preload" href="/kaito_procon/assets/css/styles.77485f87.css" as="style"><link rel="preload" href="/kaito_procon/assets/js/app.77485f87.js" as="script"><link rel="preload" href="/kaito_procon/assets/js/5.37843ae8.js" as="script"><link rel="prefetch" href="/kaito_procon/assets/css/1.styles.5a8ea794.css"><link rel="prefetch" href="/kaito_procon/assets/js/1.5a8ea794.js"><link rel="prefetch" href="/kaito_procon/assets/css/2.styles.a40b0877.css"><link rel="prefetch" href="/kaito_procon/assets/js/2.a40b0877.js"><link rel="prefetch" href="/kaito_procon/assets/js/3.eb84be2a.js"><link rel="prefetch" href="/kaito_procon/assets/js/4.ae299fe8.js">
+    <link rel="stylesheet" href="/kaito_procon/assets/css/styles.77485f87.css"><link rel="stylesheet" href="/kaito_procon/assets/css/1.styles.5a8ea794.css"><link rel="stylesheet" href="/kaito_procon/assets/css/2.styles.a40b0877.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/kaito_procon/" class="home-link router-link-active"><!----> <span class="site-name">kaitoの精進記録</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/kaito_procon/" class="nav-link">INDEX</a></div><div class="nav-item"><a href="/kaito_procon/about.html" class="nav-link">ABOUT</a></div><div class="nav-item"><a href="/kaito_procon/works.html" class="nav-link router-link-exact-active router-link-active">WORKS</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/kaito_procon/" class="nav-link">INDEX</a></div><div class="nav-item"><a href="/kaito_procon/about.html" class="nav-link">ABOUT</a></div><div class="nav-item"><a href="/kaito_procon/works.html" class="nav-link router-link-exact-active router-link-active">WORKS</a></div> <!----></nav>  <!----> </div> <div class="page"> <div class="content"><h1 id="vuepressをはじめよう"><a href="#vuepressをはじめよう" aria-hidden="true" class="header-anchor">#</a> Vuepressをはじめよう</h1> <ul><li>概要</li> <li><a href="https://vuepress.vuejs.org/guide/#why-not" target="_blank" rel="noopener noreferrer">他のHexoなどのstatic site generatorとの比較<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li> <li>まだアルファ版なので、安定性や周辺環境の豊富さなら他の方が楽だと思いますが、技術的興味とVueに慣れたい思いから採用しました。</li> <li>(WIP)</li></ul> <h3 id="wslでの準備"><a href="#wslでの準備" aria-hidden="true" class="header-anchor">#</a> WSLでの準備</h3> <ul><li>環境: windows(WSL)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>kaito@PC:~/dev/kaito$ cat /etc/lsb-release
+DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION=&quot;Ubuntu 18.04.1 LTS&quot;
+</code></pre></div><ul><li>まずは、windows側でフォルダを作って(ここでvuepressという名前のフォルダにするとハマるので、それ以外にしましょう)、シンボリックリンクをWSLからwindows側に向けて張ります</li> <li>WSLでの操作</li></ul> <div class="language- extra-class"><pre class="language-text"><code>ln -s /mnt/c/Cmmd/Project/dev/kaito ~/kaito
+</code></pre></div><ul><li>以下、とくに断りのない場合、WSLでの操作です。</li> <li>基本的には<a href="https://vuepress.vuejs.org/" target="_blank" rel="noopener noreferrer">公式<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>を見るとよいです。</li></ul> <h3 id="インストールと最小構成"><a href="#インストールと最小構成" aria-hidden="true" class="header-anchor">#</a> インストールと最小構成</h3> <ul><li><a href="https://github.com/hokaccha/nodebrew" target="_blank" rel="noopener noreferrer">nodebrew<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>を利用してnode,npmが入っているとします。(node v10.8.0, npm 6.4.1で行っています)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>cd kaito
+npm init -y
+npm install -g vuepress
+npm install vuepress
+</code></pre></div><ul><li>WSLはI/Oがちょっと遅いので待ちます。</li> <li>次に、kaito/srcディレクトリを作り(ここに設定やmarkdownを書く)、kaito/src/README.mdというファイルを作ります。READMEには<code># Hello VuePress</code>とか書いておきましょう</li> <li>package.jsonを以下のように書き換えます(scripts, authorを変更しています)</li></ul> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;name&quot;: &quot;kaito&quot;,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;vuepress dev src&quot;,
+    &quot;build&quot;: &quot;vuepress build src&quot;
+  },
+  &quot;keywords&quot;: [],
+  &quot;author&quot;: &quot;kaito_tateyama&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;vuepress&quot;: &quot;^0.14.4&quot;
+  }
+}
+</code></pre></div><ul><li>これで準備は整いました。kaitoディレクトリで<code>npm run dev</code>をしてみましょう。</li> <li>localhost:xxxxにアクセスされるように言われるのでそこにアクセスします。</li> <li>Hello VuePressのように表示されていればOKです。</li></ul> <h1 id="plugin-install"><a href="#plugin-install" aria-hidden="true" class="header-anchor">#</a> plugin install</h1> <ul><li>[数式レンダリング]</li> <li><code>npm install markdown-it --save-dev</code></li> <li><code>npm install markdown-it-katex --save-dev</code></li></ul> <h1 id="config系"><a href="#config系" aria-hidden="true" class="header-anchor">#</a> config系</h1> <ul><li>webpackを用いて出力するときにはconfigファイルが必要になります。VuePressでは<code>src/.vuepress/config.js</code>で管理します。</li> <li>kaito/src/.vuepressディレクトリを作り、中にconfig.jsファイルを作ります。記述は以下のようにします。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>module.exports = {
+    title: 'kaitoの精進記録',
+    description: '',
+    base: '/kaito_procon/',
+    dest: 'docs',
+    head: [
+        ['link',
+            {
+                rel: 'stylesheet',
+                href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css'
+            }
+        ],
+        ['link',
+            {
+                rel: 'stylesheet',
+                href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css'
+            }
+        ],
+        ['link',
+            {
+                rel: 'icon',
+                type: 'image/png',
+                href: '/__YOUR__FILE__.png'
+            }
+        ]
+    ],
+    markdown: {
+        anchor: {
+            permalink: true
+        },
+        config: md =&gt; {
+            md.use(require(&quot;markdown-it-katex&quot;))
+            md.options.linkify = true
+        }
+    },
+    themeConfig: {
+        search: true,
+        nav: [{
+                text: 'HOME',
+                link: '/'
+            },
+            {
+                text: 'ABOUT',
+                link: '/about.html'
+            },
+            {
+                text: 'WORKS',
+                link: '/works.html'
+            }
+        ]
+    }
+}
+</code></pre></div><ul><li>各項目は<a href="https://vuepress.vuejs.org/config/" target="_blank" rel="noopener noreferrer">こちら<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>を見てください。</li> <li>title: ブログタイトル</li> <li>description: metaタグで反映される。ブログの説明。</li> <li>base: URL/xxxのxxxに入るもの</li> <li>dest: 'docs'これはGitHubPages用。ビルド出力先のディレクトリを指定する。</li> <li>head: アイコンや、読み込む外部stylesheetなど</li> <li>markdown: markdownのレンダリング設定。ここでは、anchor(#)、数式を使うためにkatexを導入している。
+<ul><li>katexはmathjaxより機能が少ないが早いので、そこまで複雑な式を書かないつもりで導入した。場合によってはmathjaxに移行するつもり。</li></ul></li> <li>themeConfig: ルーティング。</li></ul> <h1 id="ディレクトリ構成"><a href="#ディレクトリ構成" aria-hidden="true" class="header-anchor">#</a> ディレクトリ構成</h1> <ul><li>上のconfig.jsに従ってディレクトリ、ファイルを構成します。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>src/
+  |-_assets/
+    |-markdownで使うファイル.png
+  |-.vuepress/
+    |-components/
+      |-vueファイル(部品).vue
+    |-public/
+      |-icon.png
+    |-config.js
+  |-about.md
+  |-home.md
+  |-works.md
+</code></pre></div><ul><li>基本はこんな感じで、あとはblog/ディレクトリを設置してその下に精進記事を入れるみたいな感じです。</li> <li>実際に数式込みでやってみます。home.mdを、以下のようにします。</li></ul> <div class="language- extra-class"><pre class="language-text"><code># summer festival contest 2018 (#夏祭りコン2018)
+- Fについて書きます。
+
+::: tip 問題
+$\sum_{i=0}^{K-1} a \uparrow \uparrow i (mod M)$ を求めよ。
+:::
+- 方針
+- 部分問題として、$a \uparrow\uparrow i (mod M)$を求める。
+- $a$と$M$が互いに素のときは、
+- $a^{\phi(M)} = 1 (mod M)$なので、$a \uparrow\uparrow i (mod M)$を求めるには$a \uparrow\uparrow (i-1) (mod \phi(M))$を求めればOK
+- さらに、それを求めるには$a \uparrow\uparrow (i-2)(mod \phi(\phi(M)))$を求めればOK→これを続ける→...→再帰で実装する。計算量は$O(K)$
+
+::: warning $\phi(x)$の性質
+(1) xが偶数→$\phi(x)$は$x/2$未満&lt;br&gt;
+(2) xが$3$以上→$\phi(x)$は偶数
+:::
+
+- (1)は、$p=2$に着目すると、掛ける因数に$2^e - 2^{e-1} = 2^{e-1}$が入るので$x$の半分未満になる
+- (2)は、$p$が奇素数の場合を考えると、掛ける因数に$p^e - p^{e-1}$(奇数 - 奇数)が入るので偶数と分かる。
+- この性質により、$\log M$回程度の繰り返しで$\phi(x)=1$となり、$mod1$の値を求めることになる。これは$0$に等しい。
+- この場合は、$O(\min(K, \log M))$で解けた。
+- では、$a$と$M$が互いに素でない場合は？
+::: danger WIP
+書きかけです
+:::
+
+
+
+## range-based forの`auto x`, `auto &amp;x`, `auto&amp; x`
+
+::: warning 
+auto&amp; xとauto &amp;xの違いが分からない→夜になったらSlackに投げる。
+:::
+
+- `auto x`このときイテレータの実態をコピーしている
+- `auto&amp; x`このとき参照(ポインタのコピー)が行われている
+- ~~ `auto &amp;x`アドレス？？参照が行われていると思われる~~ →これは存在しない
+
+| 対象 | 使い方 |
+|:--|:--|
+| auto x | コピーが対象、変更してもoriginalに影響はない |
+| auto&amp; x | originalを対象に、変更を加えたいとき |
+| const auto&amp; x | originalを対象に、変更を加えたくないとき |
+
+- [三つの違いについて](https://stackoverflow.com/questions/15176104/c11-range-based-loop-get-item-by-value-or-reference-to-const)
+- [auto&amp; xについて](https://qiita.com/rinse_/items/cdfce8aa6a685a8ebe0c)
+- [range-based-for](https://cpprefjp.github.io/lang/cpp11/range_based_for.html)
+</code></pre></div><ul><li><code>npm run dev</code>してみてみると、数式がレンダリングされている様子が見えると思います。</li> <li>components/にvueファイルを作って<code>&lt;my_vuefile/&gt;</code>とかするとそのvueコンポーネントが使えるので、markdownだけど自由度的にはHTMLと同等だと思います(スタイルがどれくらいできるかは微妙なところですが…)</li></ul> <h1 id="ビルドしてgithubpagesにデプロイしよう"><a href="#ビルドしてgithubpagesにデプロイしよう" aria-hidden="true" class="header-anchor">#</a> ビルドしてGitHubPagesにデプロイしよう</h1> <p>.gitignore</p> <div class="language- extra-class"><pre class="language-text"><code>node_modules/
+# /dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+</code></pre></div><h1 id="やりたいこと"><a href="#やりたいこと" aria-hidden="true" class="header-anchor">#</a> やりたいこと</h1> <ul><li>markdownをblog/以下のディレクトリに追加したとき自動でルーティングしてほしい(いちいちルーティング書くの面倒)</li> <li></li></ul></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/kaito_procon/assets/js/5.37843ae8.js" defer></script><script src="/kaito_procon/assets/js/app.77485f87.js" defer></script>
+  </body>
+</html>
