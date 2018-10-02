@@ -216,7 +216,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 ```
-- `cd kaito` -> `npm run build`
+- `cd kaito` -> `npm run build` buildを忘れずに！！！
 - GitHubへpush
 - Settings>GitHubPages>Sourceから、None->master branch docs folderに変更してsave
 - https://tmasaaa.github.io/kaito_procon/ でホスティングされているのがわかる。
@@ -224,3 +224,4 @@ yarn-error.log*
 # やりたいこと
 - markdownをblog/以下のディレクトリに追加したとき自動でルーティングしてほしい(いちいちルーティング書くの面倒)
 - Vueファイルでmarkdownを使いやすく拡張する。
+- どこかにpushしたとき、向こうで自動buildしてほしい
