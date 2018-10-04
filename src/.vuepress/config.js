@@ -57,6 +57,18 @@ module.exports = {
                     {
                         text: `AtCoder ABC 047 D 高橋君と見えざる手 / An Invisible Hand`,
                         link: `/procon/201810040849.html`
+                    },
+                    {
+                        text: `AtCoder ABC 049 D 連結 / Connectivity`,
+                        link: `/procon/201810041749.html`
+                    },
+                    {
+                        text: `AtCoder ABC 053 D Card Eater`,
+                        link: `/procon/201810041809.html`
+                    },
+                    {
+                        text: `AtCoder ABC 060 D Simple Knapsack`,
+                        link: `/procon/201810041830.html`
                     }
                 ]
             }
