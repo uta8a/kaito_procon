@@ -46,6 +46,19 @@ module.exports = {
             {
                 text: 'WORKS',
                 link: '/works.html'
+            },
+            {
+                text: 'PROCON',
+                items: [
+                    {
+                        text: `AtCoder ABC 045 D すぬけ君の塗り絵/Snuke's Coloring`,
+                        link: `/procon/201810040750.html`
+                    },
+                    {
+                        text: `AtCoder ABC 047 D 高橋君と見えざる手 / An Invisible Hand`,
+                        link: `/procon/201810040849.html`
+                    }
+                ]
             }
         ]
     }
