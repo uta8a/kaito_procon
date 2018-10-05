@@ -69,6 +69,10 @@ module.exports = {
                     {
                         text: `AtCoder ABC 060 D Simple Knapsack`,
                         link: `/procon/201810041830.html`
+                    },
+                    {
+                        text: `AtCoder ABC 063 D Widespread`,
+                        link: `/procon/201810050944.html`
                     }
                 ]
             }
