@@ -73,6 +73,14 @@ module.exports = {
                     {
                         text: `AtCoder ABC 063 D Widespread`,
                         link: `/procon/201810050944.html`
+                    },
+                    {
+                        text: `AtCoder ABC 112 C Pyramid`,
+                        link: `/procon/201810062325.html`
+                    },
+                    {
+                        text: `AtCoder ABC 112 D Partition`,
+                        link: `/procon/201810062343.html`
                     }
                 ]
             }
